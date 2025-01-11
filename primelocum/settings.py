@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-7+rd6i6c5#xdngge=7wh^eol!qhn0xmi$dz3sbv6@kyg$*6q37
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','primelocum.topitsolutions.co.nz','192.168.10.250']
+ALLOWED_HOSTS = ['localhost','primelocum.topitsolutions.co.nz','192.168.10.250','192.168.11.3']
 
 
 # Application definition
