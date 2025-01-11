@@ -89,6 +89,12 @@
     border-radius: 5px;
     width: 100%; /* Full width within the column */
 }
+/* Spacing for small devices */
+@media (max-width: 768px) {
+    .row.g-3 > div {
+        margin-bottom: 15px; /* Add spacing between stacked items */
+    }
+}
 
 /* Ensure Horizontal Alignment */
 .row.g-3.align-items-center {
