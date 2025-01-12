@@ -36,7 +36,7 @@
                     <div class="col-lg-3 col-md-3 col-12">
                         <!-- Start Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="{% static 'img/LOGO2.png'%}" alt="#"></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'img/LOGO2.png'%}" alt="#"></a>
                             <!-- <a href="index.html"><img src="https://primelocum.co.nz/wp-content/uploads/2024/03/Dark-Green-and-Lime-Green-Modern-Gradient-Doctor-Health-Logo-272-x-60-px.svg" alt="#"></a> -->
 
                         </div>
@@ -50,21 +50,49 @@
                         <div class="main-menu">
                             <nav class="navigation">
                                 <ul class="nav menu">
-                                    <li class="active"><a href="#">Home </a>
-                                        
-                                    </li>
-                                    <li><a href="#">AboutUs </a></li>
-                                    <li><a href="{% url 'joblists' %}">Job </a></li>
-                                    <li><a href="#">Candidate <i class="icofont-rounded-down"></i></a>
+                                    <li 
+                                        {% if '/' == request.path %}
+                                            class="active"
+                                        {% else %}
+                                            class=""
+                                        {% endif %}
+                                    
+                                    ><a href="{% url 'index' %}">Home </a></li>
+
+                                    <li 
+                                        {% if 'about' in request.path %}
+                                            class="active"
+                                        {% else %}
+                                            class=""
+                                        {% endif %}
+                                    >
+                                        <a href="{% url 'about' %}">About Us </a></li>
+
+                                    <li
+                                            {% if 'joblists' in request.path %}
+                                            class="active"
+                                        {% else %}
+                                            class=""
+                                        {% endif %}
+                                    >
+                                    <a href="{% url 'joblists' %}">Jobs </a></li>
+
+                                    <li><a href="#">Candidate </a></li>
+                                    <li><a href="#">Faq </a></li>
+                                    <li><a href="#contactus">Contact Us </a></li>
+
+
+
+                                    <!-- <li><a href="#">Candidate <i class="icofont-rounded-down"></i></a>
                                         <ul class="dropdown">
                                             <li><a href="404.html">404 Error</a></li>
                                         </ul>
-                                    </li>
-                                    <li><a href="#">Faq <i class="icofont-rounded-down"></i></a>
+                                    </li> -->
+                                    <!-- <li><a href="#">Faq <i class="icofont-rounded-down"></i></a>
                                         <ul class="dropdown">
                                             <li><a href="blog-single.html">Contact Us</a></li>
                                         </ul>
-                                    </li>
+                                    </li> -->
                                     <!-- <li><a href="contact.html">Contact Us</a></li> -->
                                 </ul>
                             </nav>
