@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Hero Image Section -->
+<div class="hero-section position-relative">
+    <img src="{% static 'img/blog2.jpg' %}" alt="Hero Image" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+
+</div>
+
+<!-- Job Detail Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row gy-5 gx-4">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-5">
+                    <img class="flex-shrink-0 img-fluid border rounded" src="https://primelocum.co.nz/wp-content/uploads/2024/03/job-image1-1.png" alt="" style="width: 80px; height: 80px;">
+                    <div class="text-start ps-4">
+                        <h3 class="mb-3">LOCUM Scrub Nurse Practitioner
+                        </h3>
+                        <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>Auckland, New Zealand</span>
+                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                        <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <h4 class="mb-3">Job description</h4>
+                    <p>
+                        We are seeking a highly skilled and experienced Scrub Nurse Practitioner to join our surgical team at a leading healthcare facility. The ideal candidate will assist surgeons during procedures, ensure the operating room is prepared, and maintain a sterile environment throughout. This role is vital to providing high-quality surgical care and ensuring patient safety during operations.
+</p><br>
+                    <h4 class="mb-3">Responsibility</h4>
+                    <p>
+                        Prepare and sterilize surgical instruments and equipment. Assist surgeons during operations by passing instruments and supplies. Maintain a sterile field and adhere to strict infection control protocols. Monitor patients’ vital signs during surgery and communicate concerns to the surgical team. Collaborate with the surgical team to ensure smooth workflow during procedures. Perform post-operative tasks, such as cleaning the operating room and restocking supplies. Provide patient education on post-operative care and recovery.                    </p>
+                    <!-- <ul class="list-unstyled">
+                        <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
+                        <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore gubergren</li>
+                        <li><i class="fa fa-angle-right text-primary me-2"></i>Rebum vero dolores dolores elitr</li>
+                        <li><i class="fa fa-angle-right text-primary me-2"></i>Est voluptua et sanctus at sanctus erat</li>
+                        <li><i class="fa fa-angle-right text-primary me-2"></i>Diam diam stet erat no est est</li>
+                    </ul> -->
+                    <br>
+                    <h4 class="mb-3">Qualifications</h4>
+                    <p>
+                        Current registration with a recognized nursing board. Experience in perioperative or surgical nursing. Strong knowledge of sterilization techniques and infection control standards. Ability to remain calm and focused under pressure. Excellent communication and teamwork skills. High attention to detail and precision. A postgraduate qualification in perioperative nursing is preferred.
+                    </p>
+<!--                     
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
+                        <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore gubergren</li>
+                        <li><i class="fa fa-angle-right text-primary me-2"></i>Rebum vero dolores dolores elitr</li>
+                        <li><i class="fa fa-angle-right text-primary me-2"></i>Est voluptua et sanctus at sanctus erat</li>
+                        <li><i class="fa fa-angle-right text-primary me-2"></i>Diam diam stet erat no est est</li>
+                    </ul> -->
+                </div>
+
+                <div class="">
+                    <h4 class="mb-4">Apply For The Job</h4>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" class="form-control" placeholder="Your Email">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="text" class="form-control" placeholder="Portfolio Website">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="file" class="form-control bg-white">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control" rows="5" placeholder="Coverletter"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
+                    <h4 class="mb-4">Auckland Healthcare Service</h4>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Job Type: Locum</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Location: Auckland</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Phone Number: 123456789</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Email: example@gmail.coom</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Founded: 2018</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Company Size: 2500-3000</p>
+
+                    <!-- <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: 01 Jan, 2045</p> -->
+                </div>
+                <!-- <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
+                    <h4 class="mb-4">Company Detail</h4>
+                    <p class="m-0">Ipsum dolor ipsum accusam stet et et diam dolores, sed rebum sadipscing elitr vero dolores. Lorem dolore elitr justo et no gubergren sadipscing, ipsum et takimata aliquyam et rebum est ipsum lorem diam. Et lorem magna eirmod est et et sanctus et, kasd clita labore.</p>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Job Detail End -->
+
+{% endblock %}

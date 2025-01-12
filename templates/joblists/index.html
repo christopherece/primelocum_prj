@@ -2,90 +2,6 @@
 {% load static %}
 {% block content %}
 
-<!-- Header Area -->
-<header class="header" >
-    <!-- Topbar -->
-    <div class="topbar">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-5 col-12">
-                    <!-- Contact -->
-                    <ul class="top-link">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Doctors</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                    <!-- End Contact -->
-                </div>
-                <div class="col-lg-6 col-md-7 col-12">
-                    <!-- Top Contact -->
-                    <ul class="top-contact">
-                        <li><i class="fa fa-phone"></i>+64 22 123456</li>
-                        <li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">info@primelocum.co.nz</a></li>
-                    </ul>
-                    <!-- End Top Contact -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Topbar -->
-    <!-- Header Inner -->
-    <div class="header-inner">
-        <div class="container">
-            <div class="inner">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-12">
-                        <!-- Start Logo -->
-                        <div class="logo">
-                            <a href="index.html"><img src="{% static 'img/LOGO2.png'%}" alt="#"></a>
-                            <!-- <a href="index.html"><img src="https://primelocum.co.nz/wp-content/uploads/2024/03/Dark-Green-and-Lime-Green-Modern-Gradient-Doctor-Health-Logo-272-x-60-px.svg" alt="#"></a> -->
-
-                        </div>
-                        <!-- End Logo -->
-                        <!-- Mobile Nav -->
-                        <div class="mobile-nav"></div>
-                        <!-- End Mobile Nav -->
-                    </div>
-                    <div class="col-lg-7 col-md-9 col-12">
-                        <!-- Main Menu -->
-                        <div class="main-menu">
-                            <nav class="navigation">
-                                <ul class="nav menu">
-                                    <li class="active"><a href="#">Home </a>
-                                        
-                                    </li>
-                                    <li><a href="#">AboutUs </a></li>
-                                    <li><a href="#">Job </a></li>
-                                    <li><a href="#">Candidate <i class="icofont-rounded-down"></i></a>
-                                        <ul class="dropdown">
-                                            <li><a href="404.html">404 Error</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Faq <i class="icofont-rounded-down"></i></a>
-                                        <ul class="dropdown">
-                                            <li><a href="blog-single.html">Contact Us</a></li>
-                                        </ul>
-                                    </li>
-                                    <!-- <li><a href="contact.html">Contact Us</a></li> -->
-                                </ul>
-                            </nav>
-                        </div>
-                        <!--/ End Main Menu -->
-                    </div>
-                    <div class="col-lg-2 col-12">
-                        <div class="get-quote">
-                            <a href="appointment.html" class="btn">Hire Top Talent</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/ End Header Inner -->
-</header>
-<!-- End Header Area -->
-
 <!-- Hero Image Section -->
 <div class="hero-section position-relative">
     <img src="{% static 'img/blog1.jpg' %}" alt="Hero Image" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
@@ -119,7 +35,7 @@
                     <div class="job-item p-4 mb-4">
                         <div class="row g-4">
                             <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                <img class="flex-shrink-0 img-fluid border rounded" src="https://primelocum.co.nz/wp-content/uploads/2024/03/job-image6-2.png" alt="" style="width: 80px; height: 80px;">
                                 <div class="text-start ps-4">
                                     <h5 class="mb-3">LOCUM Scrub Nurse Practitioner</h5>
                                     <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>Auckland</span>
@@ -130,7 +46,7 @@
                             <div class="col-sm-12 col-md-4 d-flex flex-column align-items-end justify-content-center">
                                 <div class="d-flex mb-3">
                                     <!-- <a class="btn btn-light btn-square me-3" href="#"><i class="far fa-heart text-primary"></i></a> -->
-                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                    <a class="btn btn-primary" href="{% url 'joblist' 1 %}">Apply Now</a>
                                 </div>
                                 <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                             </div>
@@ -139,7 +55,7 @@
                     <div class="job-item p-4 mb-4">
                         <div class="row g-4">
                             <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                <img class="flex-shrink-0 img-fluid border rounded" src="https://primelocum.co.nz/wp-content/uploads/2024/03/job-image6-2.png" alt="" style="width: 80px; height: 80px;">
                                 <div class="text-start ps-4">
                                     <h5 class="mb-3">MLOCUM Health Care Assistant Position</h5>
                                     <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>Auckland</span>
@@ -159,7 +75,7 @@
                     <div class="job-item p-4 mb-4">
                         <div class="row g-4">
                             <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                <img class="flex-shrink-0 img-fluid border rounded" src="https://primelocum.co.nz/wp-content/uploads/2024/03/job-image6-2.png" alt="" style="width: 80px; height: 80px;">
                                 <div class="text-start ps-4">
                                     <h5 class="mb-3">LOCUM Anaesthetic Technician Position</h5>
                                     <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>Auckland</span>
@@ -170,7 +86,7 @@
                             <div class="col-sm-12 col-md-4 d-flex flex-column align-items-end justify-content-center">
                                 <div class="d-flex mb-3">
                                     <!-- <a class="btn btn-light btn-square me-3" href="#"><i class="far fa-heart text-primary"></i></a> -->
-                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                    <a class="btn btn-primary" href="{% url 'joblist' 1 %}">Apply Now</a>
                                 </div>
                                 <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                             </div>
@@ -180,7 +96,7 @@
                     <div class="job-item p-4 mb-4">
                         <div class="row g-4">
                             <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                <img class="flex-shrink-0 img-fluid border rounded" src="https://primelocum.co.nz/wp-content/uploads/2024/03/job-image6-2.png" alt="" style="width: 80px; height: 80px;">
                                 <div class="text-start ps-4">
                                     <h5 class="mb-3">LOCUM Recovery Room Practitioner Position</h5>
                                     <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>Auckland</span>
@@ -191,7 +107,7 @@
                             <div class="col-sm-12 col-md-4 d-flex flex-column align-items-end justify-content-center">
                                 <div class="d-flex mb-3">
                                     <!-- <a class="btn btn-light btn-square me-3" href="#"><i class="far fa-heart text-primary"></i></a> -->
-                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                    <a class="btn btn-primary" href="{% url 'joblist' 1 %}">Apply Now</a>
                                 </div>
                                 <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                             </div>

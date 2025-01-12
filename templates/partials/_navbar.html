@@ -1,93 +1,85 @@
 {% load static %}
-<!-- Topbar Start -->
-<div class="container-fluid bg-light d-none d-lg-block">
-    <div class="row align-items-center top-bar">
-        <div class="col-lg-3 col-md-12 text-center text-lg-start">
-            <a href="" class="navbar-brand m-0 p-0">
-                <h1 class="text-primary m-0">Plumberz</h1>
-            </a>
-        </div>
-        <div class="col-lg-9 col-md-12 text-end">
-            <div class="h-100 d-inline-flex align-items-center me-4">
-                <i class="fa fa-map-marker-alt text-primary me-2"></i>
-                <p class="m-0">123 Street, New York, USA</p>
-            </div>
-            <div class="h-100 d-inline-flex align-items-center me-4">
-                <i class="far fa-envelope-open text-primary me-2"></i>
-                <p class="m-0">info@example.com</p>
-            </div>
-            <div class="h-100 d-inline-flex align-items-center">
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+
+<!-- Header Area -->
+<header class="header" >
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-5 col-12">
+                    <!-- Contact -->
+                    <ul class="top-link">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Doctors</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                    <!-- End Contact -->
+                </div>
+                <div class="col-lg-6 col-md-7 col-12">
+                    <!-- Top Contact -->
+                    <ul class="top-contact">
+                        <li><i class="fa fa-phone"></i>+64 22 123456</li>
+                        <li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">info@primelocum.co.nz</a></li>
+                    </ul>
+                    <!-- End Top Contact -->
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Topbar End -->
+    <!-- End Topbar -->
+    <!-- Header Inner -->
+    <div class="header-inner">
+        <div class="container">
+            <div class="inner">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-12">
+                        <!-- Start Logo -->
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static 'img/LOGO2.png'%}" alt="#"></a>
+                            <!-- <a href="index.html"><img src="https://primelocum.co.nz/wp-content/uploads/2024/03/Dark-Green-and-Lime-Green-Modern-Gradient-Doctor-Health-Logo-272-x-60-px.svg" alt="#"></a> -->
 
-
-<!-- Navbar Start -->
-<div class="container-fluid nav-bar bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4">
-        <a href="" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
-            <h1 class="text-primary m-0">Plumberz</h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="fa fa-bars"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav me-auto">
-                <a href="{% url 'index' %}"
-                {% if '/' == request.path %}
-                    class="nav-item nav-link active"
-                {% else %}
-                    class="nav-item nav-link"
-                {% endif %}
-                >
-                Home
-            </a>
-            <a href="{% url 'about' %}"
-                {% if 'about' in request.path %}
-                class="nav-item nav-link active"
-                {% else %}
-                class="nav-item nav-link"
-                {% endif %}
-            >
-            About
-            </a>
-            <a href="{% url 'service' %}"
-                {% if 'service' in request.path %}
-                class="nav-item nav-link active"
-                {% else %}
-                class="nav-item nav-link"
-                {% endif %}
-            >
-            Services
-            </a>
-        
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu fade-up m-0">
-                    <a href="booking.html" class="dropdown-item">Booking</a>
-                    <a href="team.html" class="dropdown-item">Technicians</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    <a href="404.html" class="dropdown-item">404 Page</a>
-                </div>
-            </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
-            </div>
-            <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center">
-                <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 45px; height: 45px;">
-                    <i class="fa fa-phone-alt text-primary"></i>
-                </div>
-                <div class="ms-3">
-                    <p class="mb-1 text-white">Emergency 24/7</p>
-                    <h5 class="m-0 text-secondary">+012 345 6789</h5>
+                        </div>
+                        <!-- End Logo -->
+                        <!-- Mobile Nav -->
+                        <div class="mobile-nav"></div>
+                        <!-- End Mobile Nav -->
+                    </div>
+                    <div class="col-lg-7 col-md-9 col-12">
+                        <!-- Main Menu -->
+                        <div class="main-menu">
+                            <nav class="navigation">
+                                <ul class="nav menu">
+                                    <li class="active"><a href="#">Home </a>
+                                        
+                                    </li>
+                                    <li><a href="#">AboutUs </a></li>
+                                    <li><a href="{% url 'joblists' %}">Job </a></li>
+                                    <li><a href="#">Candidate <i class="icofont-rounded-down"></i></a>
+                                        <ul class="dropdown">
+                                            <li><a href="404.html">404 Error</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Faq <i class="icofont-rounded-down"></i></a>
+                                        <ul class="dropdown">
+                                            <li><a href="blog-single.html">Contact Us</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- <li><a href="contact.html">Contact Us</a></li> -->
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--/ End Main Menu -->
+                    </div>
+                    <div class="col-lg-2 col-12">
+                        <div class="get-quote">
+                            <a href="appointment.html" class="btn">Hire Top Talent</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </nav>
-</div>
-<!-- Navbar End -->
+    </div>
+    <!--/ End Header Inner -->
+</header>
+<!-- End Header Area -->

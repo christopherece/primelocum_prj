@@ -188,12 +188,18 @@
         </div>
     </div>
     <!-- End Preloader -->
-    {% block content %}
+	      <!-- Navbar Start -->
+		{% include 'partials/_navbar.html' %}
+			<!-- Navbar End -->
+		{% block content %}
 
+		{% endblock %}
 
+		<!-- Footer Start -->
+		{% include 'partials/_footer.html' %}
 
+		<!-- Footer End -->
 
-    {% endblock %}
 
     <!-- jquery Min JS -->
 		<script src="{% static 'js/jquery.min.js' %}"></script>
