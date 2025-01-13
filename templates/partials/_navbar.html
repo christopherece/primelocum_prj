@@ -78,7 +78,14 @@
                                     <a href="{% url 'joblists' %}">Jobs </a></li>
 
                                     <li><a href="#">Candidate </a></li>
-                                    <li><a href="#">Faq </a></li>
+                                    <li
+                                            {% if 'faq' in request.path %}
+                                            class="active"
+                                        {% else %}
+                                            class=""
+                                        {% endif %}
+                                    >
+                                    <a href="{% url 'faq' %}">Faq </a></li>
                                     <li><a href="#contactus">Contact Us </a></li>
 
 

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Hero Image Section -->
+<div class="hero-section position-relative">
+    <img src="{% static 'img/abouthero.jpg' %}" alt="Hero Image" class="img-fluid w-100" style="height: 400px; object-fit: cover;">
+
+</div>
+
+<div class="faq-section">
+    <div class="container" style="text-align: center;">
+        <h1>Frequently Asked Questions</h1>
+    </div>
+    <br>
+    <div class="accordion" id="faqAccordion">
+        <!-- FAQ 1 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header collapsed" id="headingOne" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <span> How does the recruitment process work at PRIMELOCUM HEALTHCARE?
+                </span>
+                <i class="fa fa-chevron-down"></i>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Our recruitment process involves an initial consultation to understand your staffing needs, followed by sourcing and vetting qualified candidates, and coordinating interviews to ensure the best fit for your organization.                
+                </div>
+            </div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header collapsed" id="headingTwo" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <span> What types of healthcare professionals do you provide?
+                </span>
+                <i class="fa fa-chevron-down"></i>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    We specialize in providing temporary, locum, and agency staffing for Operating Theatres and Post-Anaesthesia Care Units (PACU), including Anaesthetic Technicians and Recovery Room Practitioners.                </div>
+            </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header collapsed" id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <span> How can candidates apply for positions through your agency?
+                </span>
+                <i class="fa fa-chevron-down"></i>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Candidates can apply by creating an account on our website, browsing available job listings, and submitting applications directly through our platform.
+
+                </div>
+            </div>
+        </div>
+        <!-- FAQ 4 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header collapsed" id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <span> What are the benefits of partnering with PRIMELOCUM HEALTHCARE?
+
+                </span>
+                <i class="fa fa-chevron-down"></i>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    We offer flexible staffing solutions, access to a pool of qualified professionals, and comprehensive support throughout the hiring process to ensure seamless integration into your team.
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FAQ 5 -->
+    <div class="accordion-item">
+        <h2 class="accordion-header collapsed" id="headingThree" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <span> How does PRIMELOCUM HEALTHCARE ensure the quality of its candidates?
+
+            </span>
+            <i class="fa fa-chevron-down"></i>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+                We have a rigorous screening and vetting process to ensure the highest quality standards. This includes verifying qualifications, conducting thorough background checks, obtaining professional references, and assessing relevant experience. Additionally, we ensure all candidates are compliant with healthcare regulations and possess the necessary certifications for their roles.
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
