@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['localhost','primelocum.topitsolutions.co.nz','192.168.10.250',
 
 INSTALLED_APPS = [
     'joblists.apps.JoblistsConfig',
+    'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',

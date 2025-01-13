@@ -43,9 +43,12 @@
         <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+		
+		
 		<style>
 
-			
+
+
 		
 		.hero-slider .single-slider {
     position: relative;
@@ -144,7 +147,7 @@
 			}
 
 			.schedule .single-schedule .single-content a:hover {
-				color: #0288d1;
+				color: #61CE70;
 			}
 
 			/* Responsive Adjustments */
@@ -241,6 +244,14 @@
 	      <!-- Navbar Start -->
 		{% include 'partials/_navbar.html' %}
 			<!-- Navbar End -->
+
+			{% if messages %}
+			<ul class="messages">
+				{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
 		{% block content %}
 
 		{% endblock %}
