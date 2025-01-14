@@ -2,53 +2,184 @@
 {% load static %}
 {% block content %}
 		
-<div class="auth d-flex justify-content-center align-items-center vh-100" style="padding: 20px;">
-  <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
-    <div class="text-center mb-4">
-      <a href="/">
-        <img src="images/icon.svg" alt="icon" class="img-fluid mb-3" style="width: 50px;" />
-      </a>
-      <h3 class="h5 mb-2">Account Login</h3>
-      <p class="text-muted">Hello, Welcome Back!</p>
+{% if page == 'register' %}
+<div class="auth">
+    <div class="card">
+        <div class="auth__header text-center">
+            <a href="/">
+                <img src="{% static 'images/icon.svg' %}" alt="icon" />
+            </a>
+            <h3>Register an Account</h3>
+            <p>Create a new developer account</p>
+        </div>
+
+        <form method="POST" action="{% url 'register' %}" class="form auth__form">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form__field">
+                <label for="formInput#{{ field.name }}">{{ field.label }}</label>
+                {{ field }}
+                {% for error in field.errors %}
+                <p class="error">{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+            <div class="auth__actions">
+                <input class="btn btn--sub btn--lg" type="submit" value="Sign Up" />
+            </div>
+        </form>
+
+        <div class="auth__alternative">
+            <p>Already have an Account?</p>
+            <a href="{% url 'login' %}">Log In</a>
+        </div>
     </div>
-
-    <form action="{% url 'login' %}">
-      <!-- Input:Email -->
-      <div class="mb-3">
-        <label for="formInput#text" class="form-label">Username:</label>
-        <input
-          id="formInput#text"
-          type="text"
-          name="username"
-          placeholder="Enter your username..."
-          class="form-control"
-        />
-      </div>
-
-      <!-- Input:Password -->
-      <div class="mb-3">
-        <label for="formInput#password" class="form-label">Password:</label>
-        <input
-          id="formInput#password"
-          type="password"
-          name="password"
-          placeholder="••••••••"
-          class="form-control"
-        />
-      </div>
-
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <input type="submit" value="Log In" class="btn btn-primary" />
-        <a href="forgetpassword.html" class="text-decoration-none">Forgot Password?</a>
-      </div>
-    </form>
-
-    <div class="text-center">
-      <p class="mb-1">Don’t have an Account?</p>
-      <a href="{% url 'register' %}" class="text-decoration-none">Sign Up</a>
-    </div>
-  </div>
 </div>
 
+{% else %}
+<div class="auth">
+    <div class="card">
+        <div class="auth__header text-center">
+            <a href="/">
+                <img src="{% static 'images/icon.svg' %}" alt="icon" />
+            </a>
+            <h3>Account Login</h3>
+            <p>Hello Developer, Welcome Back!</p>
+        </div>
 
-{% endblock %}
+        <form action="" method="POST" class="form auth__form">
+            {% csrf_token %}
+            <div class="form__field">
+                <label for="formInput#username">Username</label>
+                <input class="input input--text" id="formInput#username" type="text" name="username" 
+                       placeholder="Enter your username..." />
+            </div>
+
+            <div class="form__field">
+                <label for="formInput#password">Password</label>
+                <input class="input input--password" id="formInput#password" type="password" name="password" 
+                       placeholder="••••••••" />
+            </div>
+
+            <div class="auth__actions">
+                <input class="btn btn--sub btn--lg" type="submit" value="Log In" />
+                <a href="#">Forget Password?</a>
+            </div>
+        </form>
+
+        <div class="auth__alternative">
+            <p>Don’t have an Account?</p>
+            <a href="{% url 'register' %}">Sign Up</a>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+<style>
+  /* Scoped to the auth container */
+.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+    padding: 20px;
+}
+
+.auth .card {
+    max-width: 400px;
+    width: 100%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth .auth__header {
+    margin-bottom: 20px;
+}
+
+.auth .auth__header img {
+    max-width: 50px;
+}
+
+.auth .auth__header h3 {
+    margin: 10px 0 5px;
+    font-size: 1.5rem;
+}
+
+.auth .auth__header p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.auth .form__field {
+    margin-bottom: 15px;
+}
+
+.auth .form__field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.auth .input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.auth .input:focus {
+    outline: none;
+    border-color: #61CE70;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.auth .btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: #61CE70;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth .btn:hover {
+    background: #61CE70;
+}
+
+.auth .auth__alternative {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.auth .auth__alternative p {
+    margin-bottom: 5px;
+}
+
+.auth .auth__alternative a {
+    color: #61CE70;
+    text-decoration: none;
+}
+
+.auth .auth__alternative a:hover {
+    text-decoration: underline;
+}
+
+.auth .error {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+  </style>
+
+
+{% endblock content %}
+
