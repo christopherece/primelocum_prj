@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="auth d-flex justify-content-center align-items-center vh-100" style="padding: 20px;">
+  <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+    <div class="text-center mb-4">
+      <a href="/">
+        <img src="images/icon.svg" alt="icon" class="img-fluid mb-3" style="width: 50px;" />
+      </a>
+      <h3 class="h5 mb-2">Create an Account</h3>
+      <p class="text-muted">Welcome! Let’s get you started.</p>
+    </div>
+
+    <form action="{% url 'register' %}">
+      <!-- Input: Full Name -->
+      <div class="mb-3">
+        <label for="formInput#fullname" class="form-label">Full Name:</label>
+        <input
+          id="formInput#fullname"
+          type="text"
+          name="fullname"
+          placeholder="Enter your full name..."
+          class="form-control"
+        />
+      </div>
+
+      <!-- Input: Username -->
+      <div class="mb-3">
+        <label for="formInput#username" class="form-label">Username:</label>
+        <input
+          id="formInput#username"
+          type="text"
+          name="username"
+          placeholder="Choose a username..."
+          class="form-control"
+        />
+      </div>
+
+      <!-- Input: Email -->
+      <div class="mb-3">
+        <label for="formInput#email" class="form-label">Email:</label>
+        <input
+          id="formInput#email"
+          type="email"
+          name="email"
+          placeholder="Enter your email..."
+          class="form-control"
+        />
+      </div>
+
+      <!-- Input: Password -->
+      <div class="mb-3">
+        <label for="formInput#password" class="form-label">Password:</label>
+        <input
+          id="formInput#password"
+          type="password"
+          name="password"
+          placeholder="••••••••"
+          class="form-control"
+        />
+      </div>
+
+      <!-- Input: Confirm Password -->
+      <div class="mb-3">
+        <label for="formInput#confirmPassword" class="form-label">Confirm Password:</label>
+        <input
+          id="formInput#confirmPassword"
+          type="password"
+          name="confirm_password"
+          placeholder="••••••••"
+          class="form-control"
+        />
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <input type="submit" value="Sign Up" class="btn btn-primary w-100" />
+      </div>
+    </form>
+
+    <div class="text-center">
+      <p class="mb-1">Already have an account?</p>
+      <a href="{% url 'login' %}" class="text-decoration-none">Log In</a>
+    </div>
+  </div>
+</div>
+
+  {% endblock content %}   

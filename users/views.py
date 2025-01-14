@@ -34,6 +34,9 @@ def loginUser(request):
             # print('Username OR password is incorrect')
     return render(request, 'users/login_register.html')
 
+def registerUser(request):
+    return render(request, 'users/register_user.html')
+
 def logoutUser(request):
     logout(request)
-    return redirect('login')
+    return redirect('index')
