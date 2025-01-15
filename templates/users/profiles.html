@@ -43,8 +43,10 @@
                     <label for="cvUpload" class="form-label">Upload CV</label>
                     <input type="file" class="form-control" id="cvUpload" name="cv" accept=".pdf,.doc,.docx">
                     {% if user.profile.profile_cv %}
-                    <a href="{{ user.profile.profile_cv.url }}" target="_blank">View Current CV</a>
-                    {% endif %}
+                    <a href="#" target="_blank">View Current CV</a>
+					<!-- <a href="{{ user.profile.profile_cv.url }}" target="_blank">View Current CV</a> -->
+
+					{% endif %}
                 </div>
             </div>
         </div>
