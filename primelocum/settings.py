@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-7+rd6i6c5#xdngge=7wh^eol!qhn0xmi$dz3sbv6@kyg$*6q37
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost','primelocum.topitsolutions.co.nz','192.168.10.250','192.168.11.3']
+CSRF_TRUSTED_ORIGINS = ['https://primelocum.topitsolutions.co.nz','http://primelocum.topitsolutions.co.nz']
 
 
 # Application definition
