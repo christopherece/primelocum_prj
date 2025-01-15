@@ -1,125 +1,161 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="profile-container">
-    <h2 class="text-center mb-4">Profile</h2>
-    <form action="/submit-profile" method="POST" enctype="multipart/form-data">
-        <div class="mb-3 text-center">
-            <img src="# alt="Profile Image" class="profile-img" id="profilePreview">
-            <div class="mt-3">
-                <label for="profileImage" class="form-label btn btn-primary btn-sm">Change Profile Image</label>
-                <input type="file" id="profileImage" name="profileImage" class="form-control d-none" accept="image/*" onchange="previewImage(event)">
-            </div>
-        </div>
-        <div class="profile-section">
-            <h3>Personal Information</h3>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="fullName" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="fullName" name="fullName" value="#" placeholder="Enter your full name" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" value="#" placeholder="Enter your email" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" value="#" placeholder="Enter your username" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="shortIntro" class="form-label">Short Introduction</label>
-                    <input type="text" class="form-control" id="shortIntro" name="shortIntro" value="#" placeholder="Tell us something about yourself">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="location" class="form-label">Location</label>
-                    <input type="text" class="form-control" id="location" name="location" value="#" placeholder="Enter your location">
-                </div>
-            </div>
-        </div>
-        <div class="profile-section">
-            <h3>Documents</h3>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="cvUpload" class="form-label">Upload CV</label>
-                    <input type="file" class="form-control" id="cvUpload" name="cv" accept=".pdf,.doc,.docx">
-                   
-                    <a href="#" target="_blank">View Current CV</a>
 
-                </div>
+<main class="profile bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Header Section -->
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 fw-bold">Alex Smith</h1>
+                <p class="lead text-muted">Registered Nurse | Healthcare Advocate</p>
+                <p class="text-muted">Auckland, New Zealand | <a href="#" class="text-primary">alexsmith@example.com</a> | <a href="#" class="text-primary">LinkedIn</a></p>
             </div>
-        </div>
-        <div class="profile-section">
-            <h3>Social Links</h3>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="socialLinkedin" class="form-label">LinkedIn</label>
-                    <input type="url" class="form-control" id="socialLinkedin" name="socialLinkedin" value="" placeholder="Enter your LinkedIn profile URL">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="socialTwitter" class="form-label">Twitter</label>
-                    <input type="url" class="form-control" id="socialTwitter" name="socialTwitter" value="" placeholder="Enter your Twitter profile URL">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="socialYoutube" class="form-label">YouTube</label>
-                    <input type="url" class="form-control" id="socialYoutube" name="socialYoutube" value="" placeholder="Enter your YouTube channel URL">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="socialWebsite" class="form-label">Website</label>
-                    <input type="url" class="form-control" id="socialWebsite" name="socialWebsite" value="" placeholder="Enter your website URL">
-                </div>
-            </div>
-        </div>
-        <div class="text-center">
-            <button type="submit" class="btn btn-success">Save Changes</button>
-        </div>
-    </form>
-</div>
 
-<script>
-    function previewImage(event) {
-        const reader = new FileReader();
-        reader.onload = function () {
-            const output = document.getElementById('profilePreview');
-            output.src = reader.result;
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    }
-</script>
+            <!-- Left Column -->
+            <div class="col-md-4 mb-4">
+                <!-- Profile Picture -->
+                <div class="text-center mb-4">
+                    <img class="avatar shadow-sm" src="#" alt="Alex Smith">
+                </div>
+
+                <!-- Contact Information -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Contact Information</h5>
+                        <p class="mb-1">Email: <a href="#" class="text-primary">alexsmith@example.com</a></p>
+                        <p class="mb-1">Phone: <span class="text-muted">+64 123 4567</span></p>
+                        <p>Location: <span class="text-muted">Auckland, New Zealand</span></p>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Skills</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle text-primary"></i> Patient Assessment</li>
+                            <li><i class="bi bi-check-circle text-primary"></i> Medication Administration</li>
+                            <li><i class="bi bi-check-circle text-primary"></i> Wound Care</li>
+                            <li><i class="bi bi-check-circle text-primary"></i> Health Education</li>
+                            <li><i class="bi bi-check-circle text-primary"></i> Team Collaboration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Certifications</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-award text-primary"></i> Advanced Cardiac Life Support (ACLS)</li>
+                            <li><i class="bi bi-award text-primary"></i> Basic Life Support (BLS)</li>
+                            <li><i class="bi bi-award text-primary"></i> Pediatric Advanced Life Support (PALS)</li>
+                            <li><i class="bi bi-award text-primary"></i> Infection Control Certification</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-md-8">
+                <!-- Professional Summary -->
+                <div class="mb-4">
+                    <h2 class="border-bottom pb-2">Professional Summary</h2>
+                    <p>
+                        Compassionate and dedicated Registered Nurse with over 5 years of experience in patient care,
+                        specializing in critical care and community health. Committed to providing holistic care and
+                        improving patient outcomes.
+                    </p>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="mb-4">
+                    <h2 class="border-bottom pb-2">Work Experience</h2>
+                    <div class="mb-3">
+                        <h4>Critical Care Nurse</h4>
+                        <p><em>XYZ Hospital, Auckland, New Zealand | 2018 - Present</em></p>
+                        <ul>
+                            <li>Managed patient care in high-pressure environments, including intensive care units.</li>
+                            <li>Collaborated with multidisciplinary teams to develop and implement treatment plans.</li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h4>Community Health Nurse</h4>
+                        <p><em>ABC Clinic, Auckland, New Zealand | 2015 - 2018</em></p>
+                        <ul>
+                            <li>Provided health education and resources to underserved communities.</li>
+                            <li>Focused on preventive care and chronic disease management.</li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h4>Emergency Room Nurse</h4>
+                        <p><em>LMN Hospital, Auckland, New Zealand | 2013 - 2015</em></p>
+                        <ul>
+                            <li>Delivered rapid assessments and life-saving treatments in emergency settings.</li>
+                            <li>Prioritized patient care under critical conditions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="mb-4">
+                    <h2 class="border-bottom pb-2">Education</h2>
+                    <p><strong>Bachelor of Science in Nursing</strong><br>
+                        University of Auckland, New Zealand | Graduated 2013</p>
+                </div>
+
+                <!-- Interests -->
+                <div>
+                    <h2 class="border-bottom pb-2">Interests</h2>
+                    <p>
+                        Passionate about <strong>Mental Health Advocacy</strong>, <strong>Community Outreach</strong>,
+                        and <strong>Public Health Initiatives</strong>. Actively pursuing opportunities for
+                        <strong>Professional Development</strong> and knowledge sharing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
 <style>
-    .profile-container {
-        max-width: 800px;
-        margin: 50px auto;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        background-color: #f9f9f9;
+    .profile {
+        background-color: #f8f9fa;
     }
-    .profile-img {
-        width: 100px;
-        height: 100px;
+
+    .avatar {
         border-radius: 50%;
-        object-fit: cover;
+        max-width: 150px;
+        border: 5px solid #fff;
     }
-    .profile-section {
-        margin-bottom: 20px;
+
+    .list-unstyled li {
+        margin-bottom: 0.5rem;
     }
-    .profile-section h3 {
-        margin-bottom: 15px;
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 5px;
-        font-size: 1.2rem;
-        color: #333;
+
+    h2 {
+        font-weight: bold;
+        color: #61CE70;
     }
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
+
+    h4 {
+        font-weight: 600;
+        color: #212529;
     }
-    .col-md-6 {
-        flex: 0 0 calc(50% - 15px);
-        max-width: calc(50% - 15px);
+
+    .border-bottom {
+        border-bottom: 2px solid #61CE70 !important;
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+    }
+
+    ul li::marker {
+        color: #61CE70;
+        font-weight: bold;
     }
 </style>
-
 {% endblock %}
