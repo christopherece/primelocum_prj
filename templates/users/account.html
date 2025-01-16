@@ -8,8 +8,19 @@
             <!-- Header Section -->
             <div class="col-12 text-center mb-5">
                 <h1 class="display-4 fw-bold">{{ profile.name }}</h1>
-                <p class="text-muted">{{ profile.location }} | <a href="mailto:{{ profile.email }}" class="text-primary">{{ profile.email }}</a> | 
-                <a href="{{ profile.social_linkedin }}" class="text-primary" target="_blank">LinkedIn</a></p>
+                <p class="text-muted">{{ profile.location }} | 
+                    <a href="mailto:{{ profile.email }}" class="text-primary">{{ profile.email }}</a> | 
+                    <a href="{{ profile.social_linkedin }}" class="text-primary" target="_blank">LinkedIn</a>
+                    {% if profile.social_twitter %}
+                        | <a href="{{ profile.social_twitter }}" class="text-primary" target="_blank">Twitter</a>
+                    {% endif %}
+                    {% if profile.social_youtube %}
+                        | <a href="{{ profile.social_youtube }}" class="text-primary" target="_blank">YouTube</a>
+                    {% endif %}
+                    {% if profile.social_website %}
+                        | <a href="{{ profile.social_website }}" class="text-primary" target="_blank">Website</a>
+                    {% endif %}
+                </p>
             </div>
 
             <!-- Left Column -->
@@ -19,12 +30,21 @@
                     <img class="avatar shadow-sm" src="{{ profile.profile_image.url }}" alt="{{ profile.name }}">
                 </div>
 
+                <!-- Download CV -->
+                {% if profile.profile_cv %}
+                <div class="text-center mb-4">
+                    <a href="{{ profile.profile_cv.url }}" class="btn btn-success" download>Download CV</a>
+                </div>
+                {% endif %}
+
                 <!-- Contact Information -->
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
                         <h5 class="card-title">Contact Information</h5>
                         <p class="mb-1">Email: <a href="mailto:{{ profile.email }}" class="text-primary">{{ profile.email }}</a></p>
-                        <p class="mb-1">Phone: <span class="text-muted">{{ profile.phone_number }}</span></p>
+                        {% if profile.phone %}
+                            <p class="mb-1">Phone: <span class="text-muted">{{ profile.phone }}</span></p>
+                        {% endif %}
                         <p>Location: <span class="text-muted">{{ profile.location }}</span></p>
                     </div>
                 </div>
@@ -36,6 +56,8 @@
                         <ul class="list-unstyled">
                             {% for skill in profile.skills.all %}
                                 <li><i class="bi bi-check-circle text-primary"></i> {{ skill.name }}</li>
+                            {% empty %}
+                                <li class="text-muted">No skills added</li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -48,6 +70,8 @@
                         <ul class="list-unstyled">
                             {% for cert in profile.certifications.all %}
                                 <li><i class="bi bi-award text-primary"></i> {{ cert.name }}</li>
+                            {% empty %}
+                                <li class="text-muted">No certifications available</li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -56,6 +80,14 @@
 
             <!-- Right Column -->
             <div class="col-md-8">
+                <!-- About Me -->
+                {% if profile.about_me %}
+                <div class="mb-4">
+                    <h2 class="border-bottom pb-2">About Me</h2>
+                    <p>{{ profile.about_me }}</p>
+                </div>
+                {% endif %}
+
                 <!-- Professional Summary -->
                 <div class="mb-4">
                     <h2 class="border-bottom pb-2">Professional Summary</h2>
@@ -72,24 +104,34 @@
                             <ul>
                                 {% for task in experience.details.all %}
                                     <li>{{ task.task_description }}</li>
+                                {% empty %}
+                                    <li class="text-muted">No tasks listed</li>
                                 {% endfor %}
                             </ul>
                         </div>
+                    {% empty %}
+                        <p class="text-muted">No work experience available</p>
                     {% endfor %}
                 </div>
 
                 <!-- Education -->
                 <div class="mb-4">
                     <h2 class="border-bottom pb-2">Education</h2>
+                    {% if profile.education %}
                     <p><strong>{{ profile.education.degree }}</strong><br>
                         {{ profile.education.institution }} | Graduated {{ profile.education.graduation_year }}</p>
+                    {% else %}
+                    <p class="text-muted">No education details available</p>
+                    {% endif %}
                 </div>
 
                 <!-- Interests -->
+                {% if profile.interests %}
                 <div>
                     <h2 class="border-bottom pb-2">Interests</h2>
                     <p>{{ profile.interests }}</p>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>

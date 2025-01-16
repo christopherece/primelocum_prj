@@ -53,6 +53,7 @@ class Profile(models.Model):
     about_me = models.TextField(blank=True, null=True)
     short_intro = models.CharField(max_length=200, blank=True, null=True)
     location = models.CharField(max_length=200, blank=True, null=True)
+    phone = models.CharField(max_length=15, blank=True, null=True)  # New phone field
     profile_image = models.ImageField(null=True, blank=True, upload_to='profiles/', default="profiles/user-default.png")
     profile_cv = models.FileField(null=True, blank=True, upload_to='cv')
     social_linkedin = models.CharField(max_length=200, blank=True, null=True)

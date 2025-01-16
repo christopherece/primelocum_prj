@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main class="edit-profile bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Header Section -->
+            <div class="col-12 text-center mb-4">
+                <h1 class="display-5 fw-bold">Edit Profile</h1>
+                <p class="text-muted">Update your profile details below</p>
+            </div>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <!-- Left Column -->
+                <div class="col-md-4 mb-4">
+                    <!-- Profile Picture -->
+                    <div class="mb-4 text-center">
+                        {% if profile.profile_image %}
+                            <img src="{{ profile.profile_image.url }}" alt="{{ profile.name }}" class="avatar shadow-sm mb-3">
+                        {% endif %}
+                        <div class="mb-2">
+                            <label for="id_profile_image" class="form-label">Change Profile Picture</label>
+                            <input type="file" name="profile_image" id="id_profile_image" class="form-control">
+                        </div>
+                    </div>
+
+                    <!-- CV Upload -->
+                    <div class="mb-4">
+                        <label for="id_profile_cv" class="form-label">Upload CV</label>
+                        <input type="file" name="profile_cv" id="id_profile_cv" class="form-control">
+                        {% if profile.profile_cv %}
+                            <p class="text-muted mt-2">Current CV: <a href="{{ profile.profile_cv.url }}" target="_blank">Download CV</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-md-8">
+                    <div class="row">
+                        <!-- Name -->
+                        <div class="col-md-6 mb-3">
+                            <label for="id_name" class="form-label">Name</label>
+                            <input type="text" name="name" id="id_name" class="form-control" value="{{ profile.name }}">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-md-6 mb-3">
+                            <label for="id_email" class="form-label">Email</label>
+                            <input type="email" name="email" id="id_email" class="form-control" value="{{ profile.email }}">
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="col-md-6 mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="text" name="phone" id="phone" class="form-control" value="{{ profile.phone }}">
+                        </div>
+
+                        <!-- Location -->
+                        <div class="col-md-6 mb-3">
+                            <label for="id_location" class="form-label">Location</label>
+                            <input type="text" name="location" id="id_location" class="form-control" value="{{ profile.location }}">
+                        </div>
+                    </div>
+
+                    <!-- About Me -->
+                    <div class="mb-3">
+                        <label for="id_about_me" class="form-label">About Me</label>
+                        <textarea name="about_me" id="id_about_me" class="form-control" rows="4">{{ profile.about_me }}</textarea>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="id_social_linkedin" class="form-label">LinkedIn</label>
+                            <input type="url" name="social_linkedin" id="id_social_linkedin" class="form-control" value="{{ profile.social_linkedin }}">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="id_social_twitter" class="form-label">Twitter</label>
+                            <input type="url" name="social_twitter" id="id_social_twitter" class="form-control" value="{{ profile.social_twitter }}">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="id_social_youtube" class="form-label">YouTube</label>
+                            <input type="url" name="social_youtube" id="id_social_youtube" class="form-control" value="{{ profile.social_youtube }}">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="id_social_website" class="form-label">Website</label>
+                            <input type="url" name="social_website" id="id_social_website" class="form-control" value="{{ profile.social_website }}">
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="mb-3">
+                        <label for="id_skills" class="form-label">Skills</label>
+                        <input type="text" name="skills" id="id_skills" class="form-control" value="{{ profile.skills.all|join:', ' }}">
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="mb-3">
+                        <label for="id_certifications" class="form-label">Certifications</label>
+                        <input type="text" name="certifications" id="id_certifications" class="form-control" value="{{ profile.certifications.all|join:', ' }}">
+                    </div>
+
+                    <!-- Work Experience -->
+                    <div class="mb-3">
+                        <label for="id_work_experiences" class="form-label">Work Experience</label>
+                        <input type="text" name="work_experiences" id="id_work_experiences" class="form-control" value="{{ profile.work_experiences.all|join:', ' }}">
+                    </div>
+
+                    <!-- Education -->
+                    <div class="mb-3">
+                        <label for="id_education" class="form-label">Education</label>
+                        {% if profile.education %}
+                            <input type="text" name="education" id="id_education" class="form-control" value="{{ profile.education.degree }}">
+                        {% else %}
+                            <input type="text" name="education" id="id_education" class="form-control" value="">
+                        {% endif %}
+                    </div>
+
+                    <!-- Interests -->
+                    <div class="mb-3">
+                        <label for="id_interests" class="form-label">Interests</label>
+                        <textarea name="interests" id="id_interests" class="form-control" rows="3">{{ profile.interests }}</textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+{% endblock %}

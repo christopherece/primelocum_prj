@@ -1,39 +1,46 @@
 from django.contrib import admin
+from .models import (
+    Profile,
+    WorkExperience,
+    WorkExperienceDetail,
+    Skill,
+    Certification,
+    Education,
+)
 
-# Register your models here.
-from .models import Profile, WorkExperience, WorkExperienceDetail
-
-# Customizing the admin interface for WorkExperienceDetail
+# Inline models
 class WorkExperienceDetailInline(admin.TabularInline):
     model = WorkExperienceDetail
-    extra = 1  # Number of empty forms to display by default
+    extra = 1  # Number of extra empty forms displayed
 
-# Customizing the admin interface for WorkExperience
 class WorkExperienceAdmin(admin.ModelAdmin):
     list_display = ('job_title', 'company_name', 'location', 'start_date', 'end_date')
     search_fields = ('job_title', 'company_name', 'location')
-    inlines = [WorkExperienceDetailInline]  # Allow editing WorkExperienceDetails inline
+    list_filter = ('start_date', 'end_date')
+    inlines = [WorkExperienceDetailInline]
 
-# Customizing the admin interface for Profile
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+
+class CertificationAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+
+class EducationAdmin(admin.ModelAdmin):
+    list_display = ('degree', 'institution', 'graduation_year')
+    search_fields = ('degree', 'institution')
+    list_filter = ('graduation_year',)
+
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'name', 'email', 'location', 'created')
-    search_fields = ('user__username', 'name', 'email')
-    filter_horizontal = ('work_experiences',)  # Add this to manage the many-to-many relationship in a user-friendly way
+    list_display = ('name', 'email', 'location', 'short_intro', 'created')
+    search_fields = ('name', 'email', 'location')
+    list_filter = ('created',)
+    filter_horizontal = ('skills', 'certifications', 'work_experiences')  # For ManyToMany fields
 
-    # You can also customize form layout and fieldsets as per your requirements
-    fieldsets = (
-        (None, {
-            'fields': ('user', 'name', 'email', 'location', 'about_me', 'short_intro', 'profile_image', 'profile_cv')
-        }),
-        ('Social Links', {
-            'fields': ('social_linkedin', 'social_twitter', 'social_youtube', 'social_website')
-        }),
-        ('Work Experience', {
-            'fields': ('work_experiences',)
-        }),
-    )
-
-# Registering models with the admin interface
+# Register models with admin site
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(WorkExperience, WorkExperienceAdmin)
-admin.site.register(WorkExperienceDetail)
+admin.site.register(Skill, SkillAdmin)
+admin.site.register(Certification, CertificationAdmin)
+admin.site.register(Education, EducationAdmin)

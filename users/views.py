@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 
 from django.contrib import messages
 from .forms import CustomUserCreationForm
+from django.shortcuts import get_object_or_404
+from .forms import ProfileForm
+
 
 # Create your views here.
 @login_required(login_url='login')
@@ -63,3 +66,26 @@ def userAccount(request):
     profile = request.user.profile
     context = {'profile': profile}
     return render(request, 'users/account.html', context)
+
+@login_required(login_url='login')
+def edit_profile(request):
+    profile = get_object_or_404(Profile, user=request.user)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile has been updated successfully.')
+            return redirect('userAccount')  # Redirect to account page after update
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = ProfileForm(instance=profile)
+
+    context = {
+        'form': form,
+        'profile': profile,
+    }
+    return render(request, 'users/edit_profile.html', context)
+
+# The rest of your views remain the same.
