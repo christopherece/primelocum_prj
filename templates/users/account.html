@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main class="profile bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Header Section -->
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 fw-bold">{{ profile.name }}</h1>
+                <p class="text-muted">{{ profile.location }} | <a href="mailto:{{ profile.email }}" class="text-primary">{{ profile.email }}</a> | 
+                <a href="{{ profile.social_linkedin }}" class="text-primary" target="_blank">LinkedIn</a></p>
+            </div>
+
+            <!-- Left Column -->
+            <div class="col-md-4 mb-4">
+                <!-- Profile Picture -->
+                <div class="text-center mb-4">
+                    <img class="avatar shadow-sm" src="{{ profile.profile_image.url }}" alt="{{ profile.name }}">
+                </div>
+
+                <!-- Contact Information -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Contact Information</h5>
+                        <p class="mb-1">Email: <a href="mailto:{{ profile.email }}" class="text-primary">{{ profile.email }}</a></p>
+                        <p class="mb-1">Phone: <span class="text-muted">{{ profile.phone_number }}</span></p>
+                        <p>Location: <span class="text-muted">{{ profile.location }}</span></p>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Skills</h5>
+                        <ul class="list-unstyled">
+                            {% for skill in profile.skills.all %}
+                                <li><i class="bi bi-check-circle text-primary"></i> {{ skill.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Certifications</h5>
+                        <ul class="list-unstyled">
+                            {% for cert in profile.certifications.all %}
+                                <li><i class="bi bi-award text-primary"></i> {{ cert.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-md-8">
+                <!-- Professional Summary -->
+                <div class="mb-4">
+                    <h2 class="border-bottom pb-2">Professional Summary</h2>
+                    <p>{{ profile.short_intro }}</p>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="mb-4">
+                    <h2 class="border-bottom pb-2">Work Experience</h2>
+                    {% for experience in profile.work_experiences.all %}
+                        <div class="mb-3">
+                            <h4>{{ experience.job_title }}</h4>
+                            <p><em>{{ experience.company_name }}, {{ experience.location }} | {{ experience.start_date }} - {% if experience.end_date %}{{ experience.end_date }}{% else %}Present{% endif %}</em></p>
+                            <ul>
+                                {% for task in experience.details.all %}
+                                    <li>{{ task.task_description }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Education -->
+                <div class="mb-4">
+                    <h2 class="border-bottom pb-2">Education</h2>
+                    <p><strong>{{ profile.education.degree }}</strong><br>
+                        {{ profile.education.institution }} | Graduated {{ profile.education.graduation_year }}</p>
+                </div>
+
+                <!-- Interests -->
+                <div>
+                    <h2 class="border-bottom pb-2">Interests</h2>
+                    <p>{{ profile.interests }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .profile {
+        background-color: #f8f9fa;
+    }
+
+    .avatar {
+        border-radius: 50%;
+        max-width: 150px;
+        border: 5px solid #fff;
+    }
+
+    .list-unstyled li {
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-weight: bold;
+        color: #61CE70;
+    }
+
+    h4 {
+        font-weight: 600;
+        color: #212529;
+    }
+
+    .border-bottom {
+        border-bottom: 2px solid #61CE70 !important;
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+    }
+
+    ul li::marker {
+        color: #61CE70;
+        font-weight: bold;
+    }
+</style>
+
+{% endblock %}

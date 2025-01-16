@@ -8,6 +8,7 @@ from django.contrib import messages
 from .forms import CustomUserCreationForm
 
 # Create your views here.
+@login_required(login_url='login')
 def profiles(request):
     return render(request, 'users/profiles.html')
 
@@ -29,7 +30,7 @@ def loginUser(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('profiles')
+            return redirect('account')
         else:
             messages.error(request, 'Username OR password is incorrect')
             # print('Username OR password is incorrect')
@@ -46,7 +47,7 @@ def registerUser(request):
             user.save()
             messages.success(request, 'User account was created!')
             login(request, user)
-            return redirect('profiles')
+            return redirect('account')
         else:
             messages.error(request, 'An error has occurred during registration')
     context = {'page': page, 'form': form }
@@ -54,4 +55,11 @@ def registerUser(request):
 
 def logoutUser(request):
     logout(request)
+    messages.info(request, 'User was logged out!')
     return redirect('index')
+
+@login_required(login_url='login')
+def userAccount(request):
+    profile = request.user.profile
+    context = {'profile': profile}
+    return render(request, 'users/account.html', context)
